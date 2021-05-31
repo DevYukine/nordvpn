@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 LABEL maintainer="Julio Gutierrez"
 ARG NORDVPN_VERSION=3.9.5-1
 
-HEALTHCHECK --start-period=1m --interval=10m \
+HEALTHCHECK --start-period=30s --interval=30s \
 	CMD if test "$( curl -m 25 -s https://api.nordvpn.com/v1/helpers/ips/insights | jq -r '.["protected"]' )" != "true" ; then exit 1; fi
 
 RUN apt-get update -y && \
